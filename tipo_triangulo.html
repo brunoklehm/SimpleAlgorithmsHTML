@@ -71,7 +71,8 @@
 					<input type="text" class="form-control" id="l3">
 				</div>
 			</form>
-			<button type="button" class="btn btn-primary float-right">Verificar</button>
+			<br>
+			<input type="text" class="form-control" id="resultado">
 		</div>
 		<br>
 		<div class="space-2"></div>
@@ -93,6 +94,26 @@
 
 	<script src="styles/js/jquery-3.3.1.js" type="text/javascript"></script>
 	<script src="styles/js/bootstrap.js" type="text/javascript"></script>
+	<script src="styles/js/script.js" type="text/javascript"></script>
+
+	<script type="text/javascript">
+		$('input').on('keyup', function () {
+			$('#l1, #l2, #l3').blur(function () {
+				var resultado;
+
+				var l1 = parseFloat($('#l1').val());
+				var l2 = parseFloat($('#l2').val());
+				var l3 = parseFloat($('#l3').val());
+
+				if (l1 == l2 && l1 == l3) resultado = "Equilátero";
+				if (l1 != l2 && l1 != l3) resultado = "Escaleno";
+				if (l1 == l2 && l1 != l3 || l1 == l3 && l1 != l2 || l2 == l3 && l2 != l1) resultado = "Isósceles";
+
+				$('#resultado').val(resultado);
+			})
+		});
+	</script>
+
 </body>
 
 </html>

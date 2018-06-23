@@ -61,16 +61,16 @@
 				<div class="form-row">
 					<div class="col">
 						<label for="n1">Primeiro número</label>
-						<input type="text" class="form-control" id="n1">
+						<input type="text" class="form-control" id="n1" name="n1">
 					</div>
 					<div class="col">
 						<label for="n2">Segundo número</label>
-						<input type="text" class="form-control" id="n2">
+						<input type="text" class="form-control" id="n2" name="">
 					</div>
 				</div>
+				<br>
+				<input type="text" class="form-control" id="resultado">
 			</form>
-			<br>
-			<button type="button" class="btn btn-primary float-right">Verificar</button>
 		</div>
 		<div class="space-2"></div>
 		<p>
@@ -91,6 +91,24 @@
 
 	<script src="styles/js/jquery-3.3.1.js" type="text/javascript"></script>
 	<script src="styles/js/bootstrap.js" type="text/javascript"></script>
+	<script src="styles/js/script.js" type="text/javascript"></script>
+
+	<script type="text/javascript">
+		$('input').on('keyup', function() {
+			$('#n1, #n2').blur(function(){
+				var resultado;
+
+				var n1 = parseFloat($('#n1').val()); 
+				var n2 = parseFloat($('#n2').val()); 
+				
+				if(n1 > n2) resultado = n1;
+				if(n2 > n1) resultado = n2;
+
+				$('#resultado').val(resultado);
+			})
+		});
+	</script>
+
 </body>
 
 </html>

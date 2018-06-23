@@ -62,7 +62,7 @@
 				<input type="text" class="form-control" id="ano">
 			</form>
 			<br>
-			<button type="button" class="btn btn-primary float-right">Verificar</button>
+				<input type="text" class="form-control" id="resultado">
 		</div>
 		<div class="space-2"></div>
 		<center>
@@ -85,6 +85,23 @@
 
 	<script src="styles/js/jquery-3.3.1.js" type="text/javascript"></script>
 	<script src="styles/js/bootstrap.js" type="text/javascript"></script>
+	<script src="styles/js/script.js" type="text/javascript"></script>
+
+	<script type="text/javascript">
+		$('input').on('keyup', function() {
+			$('#ano').blur(function(){
+				var resultado;
+
+				var ano = parseInt($('#ano').val());  
+				
+				if(verificarAno(ano)) resultado = "Ano bissexto";
+				else resultado = "Ano normal";
+
+				$('#resultado').val(resultado);
+			})
+		});
+	</script>
+
 </body>
 
 </html>

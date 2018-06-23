@@ -59,10 +59,10 @@
 			<br>
 			<form>
 				<label for="n1">Número</label>
-				<input type="text" class="form-control" id="n1">
+				<input type="text" class="form-control" id="num">
+				<br>
+				<input type="text" class="form-control" id="resultado">
 			</form>
-			<br>
-			<button type="button" class="btn btn-primary float-right">Verificar</button>
 		</div>
 		<div class="space-2"></div>
 		<center>
@@ -85,6 +85,23 @@
 
 	<script src="styles/js/jquery-3.3.1.js" type="text/javascript"></script>
 	<script src="styles/js/bootstrap.js" type="text/javascript"></script>
+	<script src="styles/js/script.js" type="text/javascript"></script>
+
+	<script type="text/javascript">
+		$('input').on('keyup', function() {
+			$('#num').blur(function(){
+				var resultado;
+
+				var num = parseFloat($('#num').val());  
+				
+				if(num % 2 == 0) resultado = "Par";
+				else resultado = "Ímpar";
+
+				$('#resultado').val(resultado);
+			})
+		});
+	</script>
+
 </body>
 
 </html>
